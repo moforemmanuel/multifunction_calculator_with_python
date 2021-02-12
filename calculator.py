@@ -248,13 +248,14 @@ while True:
 		vii)exit\n"""))
 		
 	if TF == "i":
-								angle = int(input("Input angle : "))
+								input_angle = int(input("Input angle : "))
 								if MC == "a":
-									angle = radians(angle)
+									angle = radians(input_angle)
 								elif MC == "b":
-									angle = degrees(angle)
+									angle = degrees(input_angle)
 								ans=sin(angle)
-								print(f"cos({angle} = {ans}")
+								approx=round(ans,2)
+								print(f"cos({input_angle} = {approx}")
 					
 	
 		
