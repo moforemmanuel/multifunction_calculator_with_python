@@ -1,0 +1,14 @@
+#log file
+*.log
+
+#Temp files
+*.temp
+
+#Executable files
+*.exe
+
+#layout files
+*.layout
+
+#object files
+*.o
