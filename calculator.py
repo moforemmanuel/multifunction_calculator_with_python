@@ -40,7 +40,7 @@ def subtract(array,n):
 	else:
 		return "Error\n"
 	
-def multiply(array):
+def multiply(array,n):
 	mult = 1
 	if n>1:
 		for i in range(n):
@@ -213,12 +213,12 @@ while True:
 			if BC == "x":#minimum
 				n=int(input("Input list size : "))
 				nums(array,n)
-				minimum(array)
+				minimum(array,n)
 				
 			if BC == "xi":#maximum
 				n=int(input("Input list size : "))
 				nums(array,n)
-				maximum(array)
+				maximum(array,n)
 				
 			if BC == "xii":#exit
 				print("Exiting Basic Operations...\n")
@@ -246,8 +246,8 @@ while True:
 		v) sec
 		vi)cot
 		vii)exit\n"""))
-		
-	if TF == "i":
+
+			 		 if TF == "i":
 								input_angle = int(input("Input angle : "))
 								if MC == "a":
 									angle = radians(input_angle)
@@ -255,7 +255,62 @@ while True:
 									angle = degrees(input_angle)
 								ans=sin(angle)
 								approx=round(ans,2)
+								print(f"sin({input_angle} = {approx}")
+
+					 if TF == "ii":
+								input_angle = int(input("Input angle : "))
+								if MC == "a":
+									angle = radians(input_angle)
+								elif MC == "b":
+									angle = degrees(input_angle)
+								ans=cos(angle)
+								approx=round(ans,2)
 								print(f"cos({input_angle} = {approx}")
+
+					 if TF == "iii":
+								input_angle = int(input("Input angle : "))
+								if MC == "a":
+									angle = radians(input_angle)
+								elif MC == "b":
+									angle = degrees(input_angle)
+								ans=tan(angle)
+								approx=round(ans,2)
+								print(f"tan({input_angle} = {approx}")
+
+					 if TF == "iv":
+								input_angle = int(input("Input angle : "))
+								if MC == "a":
+									angle = radians(input_angle)
+								elif MC == "b":
+									angle = degrees(input_angle)
+								ans=cosec(angle)
+								approx=round(ans,2)
+								print(f"cosec({input_angle} = {approx}")
+
+					 if TF == "v":
+								input_angle = int(input("Input angle : "))
+								if MC == "a":
+									angle = radians(input_angle)
+								elif MC == "b":
+									angle = degrees(input_angle)
+								ans=sec(angle)
+								approx=round(ans,2)
+								print(f"sec({input_angle} = {approx}")
+
+					 if TF == "vi":
+								input_angle = int(input("Input angle : "))
+								if MC == "a":
+									angle = radians(input_angle)
+								elif MC == "b":
+									angle = degrees(input_angle)
+								ans=cot(angle)
+								approx=round(ans,2)
+								print(f"cot({input_angle} = {approx}")
+
+					if TF == "vii":
+                                                                break
+		
+                                                            
 					
 	
 		
