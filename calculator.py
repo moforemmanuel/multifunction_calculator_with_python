@@ -231,84 +231,84 @@ while True:
 		b) Radian\n"""))
 					
 	while True:
-			BC = str(input("""Choose a Trigonometric Operation : 
+		BC = str(input("""Choose a Trigonometric Operation : 
 		i)   Trigonometric functions
 		ii)  Inverse trigonometric functions
 		iii) Exit\n"""))
-		
-			if BC == "i":
-				while True:
-			 		TF = str(input("""Choose a Trigonometric function : 
-		i)  sin
-		ii) cos
-		iii)tan
-		iv)cosec
-		v) sec
-		vi)cot
-		vii)exit\n"""))
+	
+		if BC == "i":
+			while True:
+				TF = str(input("""Choose a Trigonometric function : 
+				i)  sin
+				ii) cos
+				iii)tan
+				iv)cosec
+				v) sec
+				vi)cot
+				vii)exit\n"""))
 
-			 		 if TF == "i":
-								input_angle = int(input("Input angle : "))
-								if MC == "a":
-									angle = radians(input_angle)
-								elif MC == "b":
-									angle = degrees(input_angle)
-								ans=sin(angle)
-								approx=round(ans,2)
-								print(f"sin({input_angle} = {approx}")
+				if TF == "i":
+					input_angle = int(input("Input angle : "))
+					if MC == "a":
+						angle = radians(input_angle)
+					elif MC == "b":
+						angle = degrees(input_angle)
+					ans=sin(angle)
+					approx=round(ans,2)
+					print(f"sin({input_angle} = {approx}")
 
-					 if TF == "ii":
-								input_angle = int(input("Input angle : "))
-								if MC == "a":
-									angle = radians(input_angle)
-								elif MC == "b":
-									angle = degrees(input_angle)
-								ans=cos(angle)
-								approx=round(ans,2)
-								print(f"cos({input_angle} = {approx}")
+				if TF == "ii":
+					input_angle = int(input("Input angle : "))
+					if MC == "a":
+						angle = radians(input_angle)
+					elif MC == "b":
+						angle = degrees(input_angle)
+					ans=cos(angle)
+					approx=round(ans,2)
+					print(f"cos({input_angle} = {approx}")
 
-					 if TF == "iii":
-								input_angle = int(input("Input angle : "))
-								if MC == "a":
-									angle = radians(input_angle)
-								elif MC == "b":
-									angle = degrees(input_angle)
-								ans=tan(angle)
-								approx=round(ans,2)
-								print(f"tan({input_angle} = {approx}")
+				if TF == "iii":
+					input_angle = int(input("Input angle : "))
+					if MC == "a":
+						angle = radians(input_angle)
+					elif MC == "b":
+						angle = degrees(input_angle)
+					ans=tan(angle)
+					approx=round(ans,2)
+					print(f"tan({input_angle} = {approx}")
 
-					 if TF == "iv":
-								input_angle = int(input("Input angle : "))
-								if MC == "a":
-									angle = radians(input_angle)
-								elif MC == "b":
-									angle = degrees(input_angle)
-								ans=cosec(angle)
-								approx=round(ans,2)
-								print(f"cosec({input_angle} = {approx}")
+				if TF == "iv":
+					input_angle = int(input("Input angle : "))
+					if MC == "a":
+						angle = radians(input_angle)
+					elif MC == "b":
+						angle = degrees(input_angle)
+					ans=cosec(angle)
+					approx=round(ans,2)
+					print(f"cosec({input_angle} = {approx}")
 
-					 if TF == "v":
-								input_angle = int(input("Input angle : "))
-								if MC == "a":
-									angle = radians(input_angle)
-								elif MC == "b":
-									angle = degrees(input_angle)
-								ans=sec(angle)
-								approx=round(ans,2)
-								print(f"sec({input_angle} = {approx}")
+				if TF == "v":
+					input_angle = int(input("Input angle : "))
+					if MC == "a":
+						angle = radians(input_angle)
+					elif MC == "b":
+						angle = degrees(input_angle)
+					ans=sec(angle)
+					approx=round(ans,2)
+					print(f"sec({input_angle} = {approx}")
 
-					 if TF == "vi":
-								input_angle = int(input("Input angle : "))
-								if MC == "a":
-									angle = radians(input_angle)
-								elif MC == "b":
-									angle = degrees(input_angle)
-								ans=cot(angle)
-								approx=round(ans,2)
-								print(f"cot({input_angle} = {approx}")
+				if TF == "vi":
+					input_angle = int(input("Input angle : "))
+					if MC == "a":
+						angle = radians(input_angle)
+					elif MC == "b":
+						angle = degrees(input_angle)
+					ans=cot(angle)
+					approx=round(ans,2)
+					print(f"cot({input_angle} = {approx}")
 
-					if TF == "vii":
-                                                                break
+				if TF == "vii":
+					break
 		
                                                             
 					
