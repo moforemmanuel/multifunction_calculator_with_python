@@ -1,5 +1,9 @@
 from math import *
 from sympy import *
+from string import *
+from itertools import *
+from time import *
+
 
 array = []
 
@@ -666,10 +670,10 @@ while True:
 					if HF == "vii":
 						break
 
-	if GC == "iv":
+	if GC == 4:
 
 		while True:
-			CC = str(input("""Choose a Conversion Operation : 
+			CF = str(input("""Choose a Conversion Operation : 
 				i)   Number systems
 				ii)  Temperature
 				iii) Angles
@@ -685,8 +689,385 @@ while True:
 					v) decimal to octal
 					vi)decimal to hexadecimal
 					vii)decimal to other 
-					viii) octal to hexadecimal \n"""))
+					viii) octal to decimal 
+					ix) Exit\n"""))
+
 					
+					if HF == "i":
+						num = list(input("Enter the number : "))
+						val = 0
+
+						for i in range(len(num)):
+							dig = num.pop()
+							if digit == "1":
+								value += pow(2, i)
+						print(f"The binary number {num} in decimal is {val}\n")
+
+					if HF == "ii":
+						def map(bto):
+							bto["000"]='0'
+							bto["001"]='1'
+							bto["002"]='2'
+							bto["003"]='3'
+							bto["004"]='4'
+							bto["005"]='5'
+							bto["006"]='6'
+							bto["007"]='7'
+
+						def convert_bto(bin):
+							l=len(bin)
+
+							t = -1
+
+							if"." in bin:
+								t = bin.index(".")
+								len_left = t
+							else:
+								len_left = l
+
+							for i in range((3-len_left%3)%3+1):
+								bin = "0" + bin
+
+							if (t!=-1):
+								len_right = l-len_left-1
+
+								for i in range(1,(3-len_right%3)%3+1):
+									bin = bin + "0"
+
+							bto = {}
+
+							map(bto)
+
+							i = 0
+
+							octal = ""
+
+							while True:
+								octal += bto[bin[i:i+3]]
+
+								i+=3
+
+								if i==len(bin):
+									break
+
+								if bin[i]==".":
+									octal += "."
+									i+=1
+
+							return octal
+
+						bin = str(input("Enter the binary number : "))
+						print(f"The binary number {bin} in octal is {convert_bto(bin)} \n")
+
+					if HF == "iii":
+						bin = str(input("Enter the  binary number : "))
+
+						if len(bin)%4 == 1:
+							bin = "000" + bin
+						if len(bin)%4 == 2:
+							bin = "00" + bin
+						if len(bin)%4 == 3:
+							bin = "0" + bin
+
+						hex = ''
+
+						len = int(len(bin)/4)
+
+						print("len:",len)
+						i=0
+						j=0
+						k=4
+						dec=0
+
+						while i<len:
+							st = bin[j:k]
+							b=int(st)
+							temp=0
+							rem=0
+							deci=0
+							while b!=0:
+								rem = b % 10
+								b = b//10
+								deci = deci+rem*pow(2,temp)
+								temp+=1
+							if deci ==15:
+								hex+="F"
+							if deci ==14:
+								hex+="E"
+							if deci ==13:
+								hex+="D"
+							if deci ==12:
+								hex+="C"
+							if deci ==11:
+								hex+="B"
+							if deci ==10:
+								hex+="A"
+							else:
+								hex += str(deci)
+
+							j=k
+							k+=4
+							i+=1
+
+						print(f"The binary number {bin} in hexadecimal is {hex}\n")
+					
+					if HF == "iv":
+						def dtb(num):
+							if num >= 1:
+								dtb(num//2)
+							print(num%2,end='')
+						num = int(input("Enter the number : "))
+						dtb(num)
+
+					if HF == "v":
+						def dto(num):
+							oct = [0]*100
+							i=0
+							while num != 0:
+								oct[i] = n % 8
+								num = int(num/8)
+								i+=1
+
+							for j in range(i-1,-1,-1):
+								print(oct[j],end='')
+
+						num = int(input("Enter the number : "))
+						dto(num)
+							
+					if HF == "vi":
+						def dth(num):
+							hex = ["0"]*100
+							i=0
+							while n!=0:
+								temp = 0
+								temp = n%16
+								if temp < 10:
+									hex[i]=chr(temp + 48)
+									i+=1
+								else:
+									hex[i]=chr(temp + 55)
+									i+=1
+								num = int(num/16)
+							j=i-1
+							while j>= 0:
+								print((hex[j]),end = '')
+								j-=1
+
+						num = int(input("Enter the number : "))
+						dth(num)
+
+					if HF == "vii":
+						num = int(input("Enter the number : "))
+						base = int(input("Enter the base (2-9) : "))
+						if not (2<= base <= 9):
+							quit()
+						new=''
+						while num > 0:
+							new = str(num % base) + new
+							num //= base
+						print(f"The decimal number {num} in base {base} is {new}\n")
+
+					if HF == "viii":
+						def otd(num):
+							dec=0
+							b=1
+
+							while num:
+								last_digit = num%10
+								num = int(num/10)
+								dec+=last_digit*base
+								base*=8
+
+							print(f"The octal number {num} in decimal is {dec}\n")
+
+						num = int(input("Enter the number :"))
+						otd(num)
+
+					if HF == "ix":
+						break
+			if CF == "ii":
+				while True:
+					S1 = str(input("""Choose a scale below and choose further the scale you wish to convert to  :
+									i) Kelvin
+									ii)Celsius
+									iii)Fahrenheit
+									iv) Rankine
+									v) Reaumur
+									vi) Exit\n"""))
+
+					if S1 == "i":
+						S2 = str(input("""Choose the scale you wish to convert to : 
+										i)Celsius 
+										ii)Fahrenheit
+										iii)Rankine
+										iv) Reaumur\n"""))
+						temp = float(input("Enter the temperature in Kelvin : "))
+						if S2 == "i":
+							ans = temp - 273.15
+							print(f"{temp} Kelvin = {ans} celsius \n")
+						if S2 == "ii":
+							ans = (temp - 273.15)*(9/5) + 32
+							print(f"{temp} Kelvin = {ans} celsius \n")
+						if S2 == "iii":
+							ans = temp*(5/9)
+							print(f"{temp} Kelvin = {ans} Rankine")
+						if S2 == "iv":
+							ans = (temp - 273.15)*0.8
+							print(f"{temp} Kelvin = {ans} Reaumur")
+						else:
+							print("Invalid operation ... ")
+							break
+
+					if S1 == "ii":
+						S2 = str(input("""Choose the scale you wish to convert to : 
+										i)Kelvin 
+										ii)Fahrenheit
+										iii)Rankine
+										iv) Reaumur\n"""))
+						temp = float(input("Enter the temperature in Celsius : "))
+						if S2 == "i":
+							ans = temp + 273.15
+							print(f"{temp} Celsius = {ans} Kelvin \n")
+						if S2 == "ii":
+							ans = (temp)*(9/5) + 32
+							print(f"{temp} Celsius = {ans} Fahrenheit \n")
+						if S2 == "iii":
+							ans = (temp + 273.15)*(9/5)
+							print(f"{temp} Celsius = {ans} Rankine")
+						if S2 == "iv":
+							ans = temp*0.8
+							print(f"{temp} Celsius = {ans} Reaumur")
+						else:
+							print("Invalid operation ... ")
+							break
+
+					if S1 == "iii":
+						S2 = str(input("""Choose the scale you wish to convert to : 
+										i)Kelvin 
+										ii)Celsius
+										iii)Rankine
+										iv) Reaumur\n"""))
+						temp = float(input("Enter the temperature in Fahrenheit : "))
+						if S2 == "i":
+							ans = (temp + 459.65)*(5/9)
+							print(f"{temp} Fahrenheit = {ans} Kelvin \n")
+						if S2 == "ii":
+							ans = (temp-32)*(5/9)
+							print(f"{temp} Fahrenheit = {ans} celsius \n")
+						if S2 == "iii":
+							ans = temp + 459.67
+							print(f"{temp} Fahrenheit = {ans} Rankine")
+						if S2 == "iv":
+							ans = (temp - 32)*(4/9)
+							print(f"{temp} Fahrenheit = {ans} Reaumur")
+						else:
+							print("Invalid operation ... ")
+							break
+
+					if S1 == "iv":
+						S2 = str(input("""Choose the scale you wish to convert to : 
+										i)Kelvin 
+										ii)Celsius
+										iii)Fahrenheit
+										iv) Reaumur\n"""))
+						temp = float(input("Enter the temperature in Rankine : "))
+						if S2 == "i":
+							ans = temp*(5/9)
+							print(f"{temp} Rankine = {ans} Kelvin \n")
+						if S2 == "ii":
+							ans = (temp - 491.67)*(5/9)
+							print(f"{temp} Rankine = {ans} celsius \n")
+						if S2 == "iii":
+							ans = temp - 459.67
+							print(f"{temp} Rankine = {ans} Fahrenheit")
+						if S2 == "iv":
+							ans = (temp - 491.67)*(4/9)
+							print(f"{temp} Rankine = {ans} Reaumur")
+						else:
+							print("Invalid operation ... ")
+							break
+
+					if S1 == "v":
+						S2 = str(input("""Choose the scale you wish to convert to : 
+										i)Kelvin 
+										ii)Celsius
+										iii)Fahrenheit
+										iv) Rankine\n"""))
+						temp = float(input("Enter the temperature in Reaumur : "))
+						if S2 == "i":
+							ans = (temp)*(5/4) + 273.15
+							print(f"{temp} Reaumur = {ans} Kelvin \n")
+						if S2 == "ii":
+							ans = (temp)/0.8
+							print(f"{temp} Reaumur = {ans} Celsius \n")
+						if S2 == "iii":
+							ans = temp*(9/4) + 32
+							print(f"{temp} Reaumur = {ans} Fahrenheit")
+						if S2 == "iv":
+							ans = (temp)*(9/4) + 491.67
+							print(f"{temp} Reaumur = {ans} Rankine")
+						else:
+							print("Invalid operation ... ")
+							break
+
+					if S1 == "vi":
+						break
+			
+			if CF == "iii":
+				while True :
+					AC = str(input("""Choose a conversion below : 
+									i) Degrees to Radians
+									ii)Radians to Degrees
+									iii)Exit \n"""))
+					
+					if AC == "i":
+						angle = float(input("Enter the angle : "))
+						ans = round(degrees(angle),2)
+						print(f"{angle} degrees = {ans} radians")
+
+					if AC == "ii":
+						num = float(input("Enter the number : "))
+						ans = round(radians(num),2)
+						print(f"{num} radians = {ans} degrees")
+					
+					if AC == "iii":
+						break
+			
+			if CF == "iv":
+				break
+	if GC == 5:
+		opt = str(input("""Are you sure you want to exit ? 
+					i) Yes
+					ii) No\n"""))
+		if opt == "i":
+			sleep(2)
+			print("Thanks for using our calculator ...\n")
+			sleep(2)
+			print("           GOODBYE          \n")
+			
+			quit()
+		elif opt == "ii":
+			continue
+		else:
+			print("Invalid option \n")
+			continue
+
+
+
+						
+
+
+
+				
+
+
+
+
+
+
+				
+
+
 
 
 
